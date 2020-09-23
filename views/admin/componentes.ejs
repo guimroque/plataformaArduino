@@ -1,0 +1,179 @@
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/homenavbar.ejs") %>
+
+<body>
+    <div class="jumbotron justify-contet-center" style="margin-bottom:0px; border-radius: 0; padding: 5px;">
+      
+        <div class="container card mt-3 mb-5">
+          
+        <div class="card m-3">
+            <div class="row no-gutters">
+              <div class="col" style=" width: 100%;">
+                <div class="card-body">
+                    <div class="container">
+                        
+                        <h3 class="text-center mb-5">Escolha os componentes para as equipes</h3>
+                        <div class="row">
+                            <% equipes.forEach((dataValues) => {%> 
+                                <div class="col mb-3 card-header" style="border-radius: 5px; font-size: 20px;">
+                                    <b>Equipe: </b><%=dataValues.equipe%> <br>
+                                    
+                                    <b>Componentes escolhidos:</b> 
+                                     <% if(dataValues.componente1){%>
+                                        <%=dataValues.componente1%> | <%=dataValues.componente2%> | <%=dataValues.componente3%> 
+                                    <%}%>
+                                    <% if(dataValues.componente4){%>
+                                       | <%=dataValues.componente4%> | <%=dataValues.componente5%> | <%=dataValues.componente6%> 
+                                    <%}%>
+                                    <% if(dataValues.componente7){%>
+                                       | <%=dataValues.componente7%> | <%=dataValues.componente8%> | <%=dataValues.componente9%> 
+                                    <%}%>
+                                    <% if(dataValues.componente1==null) {%>
+                                        <form action="/admin/comppacote1" method="post">
+                                            
+                                            <div class="row mb-2"><br>
+                                                <b class="ml-3">Voce está na primeira escolha de 3.</b>
+                                                <div class="w-100 ml-3 mt-3 "><h5>Pacote 1:</h5></div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="DISPLAYLCD">
+                                                    <label for="comp1" > Display LCD </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="INFRA">
+                                                    <label for="comp1">Infravermelho </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="SENSORGAS">
+                                                    <label for="comp1">Sensor de Gás </label>
+                                                </div>
+                                                <div class="w-100 ml-3 mt-3"><h5>Pacote 2</h5></div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="FOTO">
+                                                    <label for="comp1" > Fotorresistor </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2"  value="MOTOR">
+                                                    <label for="comp1">Motor </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="LEDRGB">
+                                                    <label for="comp1">Led RGB </label>
+                                                </div>
+                                              
+                                              
+                                            <input type="hidden" value="<%=dataValues.equipe%>" name="user" id="user">
+                                              <div class="w-100">
+                                                <h5 class="ml-1">Atenção, primeiro voce precisa se certificar que corrigiu todos os envios desta equipe ate aqui</h5>
+                                              
+                                                  <button type="submit" class="btn btn-outline-success">Escolher</button>
+                                              </div>
+                                            </div>
+                                        </form>
+                                    <% } %>
+                                    
+                                    <% if(dataValues.componente4==null && dataValues.componente3!=null) {%>
+                                        <form action="/admin/comppacote1" method="post">
+
+                                            <div class="row mb-2">
+                                                <b class="ml-3">Voce está na segunda escolha de 3.</b>
+                                                <div class="w-100 ml-3 mt-3 "><h5>Pacote 1:</h5></div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="ULTRA">
+                                                    <label for="comp1" > Sensor Ultrassônico </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="MTPASSO">
+                                                    <label for="comp1">Motor de Passo </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="INFRA">
+                                                    <label for="comp1">Sensor Infravermelho </label>
+                                                </div>
+                                                
+                                                <div class="w-100 ml-3 mt-2 "><h5>Pacote 2:</h5></div>
+
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="BOTAO">
+                                                    <label for="comp1" > Botão </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2"  value="POTENCIOMETRO">
+                                                    <label for="comp1">Potenciômetro </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="LED.">
+                                                    <label for="comp1">Led </label>
+                                                </div>
+                                              </div>
+                                              <input type="hidden" value="<%=dataValues.equipe%>" name="user" id="user">
+                                              <div class="w-100">
+                                                <h5 class="ml-1">Atenção, primeiro voce precisa se certificar que corrigiu todos os envios desta equipe ate aqui</h5>
+                                            
+                                                  <button type="submit" class="btn btn-outline-success">Escolher</button>
+                                             </div>
+
+                                        </form>
+                                        
+                                    <% } %>
+
+                                    <% if(dataValues.componente7==null && dataValues.componente6!=null) {%>
+                                        <form action="/admin/comppacote1" method="post">
+                                            <div class="row mb-2">
+                                                <b class="ml-3">Voce está na terceira escolha de 3.</b>
+                                                <div class="w-100 ml-3 mt-3 "><h5>Pacote 1:</h5></div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="ULTRA">
+                                                    <label for="comp1" > Sensor Ultrassônico </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="DISPLAYLCD">
+                                                    <label for="comp1">Display LCD </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp1" value="MTPASSO">
+                                                    <label for="comp1">Motor de Passo </label>
+                                                </div>
+                                                <div class="w-100 ml-3 mt-3"><h5>Pacote 2</h5></div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="BUZZ">
+                                                    <label for="comp1" > Buzzer </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2"  value="FOTO">
+                                                    <label for="comp1">Fotorresistor </label>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="checkbox" name="comp2" value="LEDRGB">
+                                                    <label for="comp1">Led RGB </label>
+                                                </div>
+                                              </div>
+                                              
+                                            <input type="hidden" value="<%=dataValues.equipe%>" name="user" id="user">
+                                              <div class="w-100">
+                                                <h5 class="ml-1">Atenção, primeiro voce precisa se certificar que corrigiu todos os envios desta equipe ate aqui</h5>
+                                              
+                                                  <button type="submit" class="btn btn-outline-success">Escolher</button>
+                                              </div>
+                                        </form>
+                                        
+                                    <% } %>
+                                </div>
+                                <div class="w-100"></div>
+                            <%})%>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    
+    </div>
+
+
+</body>
+
+
+  
+<%- include ("../partials/footer.ejs") %>

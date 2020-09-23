@@ -1,0 +1,75 @@
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/navbar.ejs") %>
+<body>
+    <div class="card-header">
+
+        <div class="container justifu-content-center">
+            <div class="row">
+              <div class="col">
+                  <div class="container justifu-content-center">
+                      
+                  <div class="card-body m-2" style="background: #fff;border-radius: 5px; border:1px solid #DADADA">
+                    <h3 class="mt-2 ml-3">Enviar solução:</h3>
+                    <form action="/user/storeconfronto" method="post" style="width: 100%;">
+        
+                        <div class="col-sm-12 mt-2">
+                            <input type="text" name="link" id="link" placeholder="Cole aqui o link do tinkercad" class="form-control"><br>
+                        </div>
+                        <div class="col-sm-12 my-3">
+                            <button type="submit" class="btn btn-outline-dark btn-lg">Enviar</button>
+                        </div>
+                        </form> <br>
+                  </div>
+              </div>
+            </div>
+              <div class="col">
+                <div class="card-body m-2" style="background: #fff;border-radius: 5px; border: 1px solid #DADADA;">
+                    <h3 class="mt-2 ml-1">Tabela de classificação:</h3>
+                    <table class="table table-striped table-dark mt-2 ml-1">
+                        <thead>
+                          <tr>
+                            <th scope="col">Equipe</th>
+                            <th scope="col">Pontos</th>
+                            <th scope="col">Modalidade</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                              <% if(tabela){%>
+                                <% tabela.forEach((dataValues)=> { %>
+                                  <tr>
+                                      <td><%= dataValues.equipe%></td>
+                                      <td><%= dataValues.nota%></td>
+                                      <td><%= dataValues.modalidade%></td>
+                                    </tr>
+                                <%})%>
+                                <%}%>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            </div>
+    </div>
+    <div class="container justifu-content-center">
+        <div class="row" style="width: 49%;">
+          <div class="col">
+              <div class="card-body mt-2 mb-4 ml-4" style="background: #fff;border-radius: 5px; border:1px solid #DADADA">
+                <h3 class="m-2">Historico de envios:</h3> <hr>
+                <% historico.forEach((dataValues)=> { %>
+                    <% if(dataValues.nota == 0){%>
+                        <div class = 'alert alert-secondary'style="font-size: 25px;">
+                            <%=dataValues.equipe%>: <%=dataValues.nota%> Pontos
+                        </div>
+                    <%}%>
+                    <% if(dataValues.nota > 0){%>
+                        <div class = 'alert alert-success'style="font-size: 25px;">
+                            <%=dataValues.equipe%>: <%=dataValues.nota%> Pontos
+                        </div>
+                    <%}%>
+                <%})%>
+              </div>
+          </div>
+        </div>
+</div>
+</body>
+
+<%- include ("../partials/footer.ejs") %>

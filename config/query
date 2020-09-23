@@ -1,0 +1,12 @@
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Velociraptor', 'Owen Grady', '1', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Tiranossauro Rex', 'Claire Dearing', '1', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Anquilossauro', 'Zach e Gray', '1', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Pterodactilo', 'Simon Masrani', '2', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Espinossauro', 'Comandante Vic Hoskins', '2', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Triceratops', 'Dr. Henry Wu', '2', 'Técnico');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Velociraptor', 'Owen Grady', '1', 'Regular');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Tiranossauro Rex', 'Claire Dearing', '1', 'Regular');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Anquilossauro', 'Zach e Gray', '1', 'Regular');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Pterodactilo', 'Simon Masrani', '2', 'Regular');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Espinossauro', 'Comandante Vic Hoskins', '2', 'Regular');
+INSERT INTO batalhas(personagem1, personagem2, rodada, modalidade) VALUES ('Triceratops', 'Dr. Henry Wu', '2', 'Regular');

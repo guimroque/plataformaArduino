@@ -1,0 +1,191 @@
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/homenavbar.ejs") %>
+
+<body>
+    <h1 id="title">Componentes</h1>
+
+    <p id="text">Parabéns você conseguiu passar pelo nosso quiz. <br/>
+        Chegou o momento de você escolher 3 componentes que o ajudarão durante sua jornada. <br/>
+        Lembrando que entre esses 3 componentes deverá haver pelo menos 1 de cada pacote. <br/>
+        Por exemplo: 1 componente do Pacote 1 e 2 componentes do Pacote 2 ou <br/>
+        2 componentes do Pacote 1 e 1 componente do Pacote 2. <br/>
+        Ao finalizar a escolha basta clicar no botão Escolher no final da página. <br/>
+        Boa sorte!!!
+    </p>
+
+    <form action="/user/comppacote1" method="POST">
+
+        <div id="containerPack1">
+            
+            <h4 id="pack1">Pacote 1:</h4>
+
+            <img src="../img/Ultra.png" id="img1"/>
+            <div id="check1">
+                <input type="checkbox" name="comp1" value="ULTRA">
+                <label for="comp1" > Sensor Ultrassônico </label>
+            </div>
+
+            <img src="../img/MotorPasso.png" id="img2" />
+            <div id="check2">
+                <input type="checkbox" name="comp1" value="MTPASSO">
+                <label for="comp1">Motor de Passo </label>
+            </div>
+
+            <img src="../img/Infravermelho.png" id="img3"/>
+            <div id="check3">
+                <input type="checkbox" name="comp1" value="INFRA">
+                <label for="comp1">Sensor Infravermelho </label>
+            </div>     
+            <input type="hidden" name="comp1"> 
+        </div>
+
+        <div id="containerPack2">
+            
+            <h4 id="pack2">Pacote 2:</h4>
+
+            <img src="../img/Botao.png" id="img4"/>
+            <div id="check4">
+                <input type="checkbox" name="comp2" value="BOTAO">
+                <label for="comp1" > Botão </label>
+            </div>
+
+            <img src="../img/Potenciometro.png" id="img5"/>
+            <div id="check5">
+                <input type="checkbox" name="comp2"  value="POTENCIOMETRO">
+                <label for="comp1">Potenciômetro </label>
+            </div>
+
+            <img src="../img/Led.png" id="img6"/>
+            <div id="check6">
+                <input type="checkbox" name="comp2" value="LED.">
+                <label for="comp1">Led </label>
+            </div> 
+            <input type="hidden" name="comp2">        
+        </div>
+
+        <button type="submit" id="buttonEscolher" class="btn btn-outline-light mb-5">Escolher</button>
+
+    </form>
+</body>
+
+<style>
+    body {
+        background-color: #343a40;
+    }
+    #title {
+        font-family: 'Poppins';
+        color: white;
+        font-size: 32px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-bottom: 50px; 
+        text-align: center; 
+        margin-top: 50px;
+    }
+    #text {
+        margin-left: 100px;
+        font-family: 'Poppins';
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 2px;
+    }
+    #containerPack1 {
+        margin-left: 100px;
+        margin-right: 100px;
+        display: grid;
+        border-radius:5px;
+        grid-template-columns: 3;
+        grid-template-rows: 2;
+        grid-template-areas: 
+            "pack1 img1 img2 img3"
+            "pack1 check1 check2 check3";
+        column-gap: 2rem;
+        background-color: #f4f5f6;
+    }
+    #pack1 {
+        grid-area: pack1;
+        align-self: center;
+        font-family: 'Poppins';
+        font-weight: 600;
+        padding-left: 20px;
+    }
+    #img1 {
+        grid-area: img1;
+        height: 150px; 
+        width: 300px;
+        align-self: center;
+    }
+    #img2 {
+        grid-area: img2;
+        height: 300px; 
+        width: 200px;
+    }
+    #img3 {
+        grid-area: img3;
+        height: 300px; 
+        width: 300px;  
+    }
+    #check1 {
+        grid-area: check1;
+    }
+    #check2 {
+        grid-area: check2;
+    }
+    #check3 {
+        grid-area: check3;
+    }
+    #containerPack2 {
+        margin-right: 100px;
+        margin-left: 100px;
+        margin-top: 50px;
+        display: grid;
+        border-radius: 5px;
+        grid-template-columns: 3;
+        grid-template-rows: 2;
+        grid-template-areas: 
+            "pack2 img4 img5 img6"
+            "pack2 check4 check5 check6";
+        column-gap: 2rem;
+        background-color: #f4f5f6;
+    }
+    #pack2 {
+        grid-area: pack2;
+        align-self: center;
+        font-family: 'Poppins';
+        font-weight: 600;
+        padding-left: 20px;
+    }
+    #img4 {
+        grid-area: img4;
+        height: 300px; 
+        width: 300px;
+        align-self: center;
+    }
+    #img5 {
+        grid-area: img5;
+        height: 300px; 
+        width: 300px;
+    }
+    #img6 {
+        grid-area: img6;
+        height: 300px; 
+        width: 300px;  
+    }
+    #check4 {
+        grid-area: check4;
+    }
+    #check5 {
+        grid-area: check5;
+    }
+    #check6 {
+        grid-area: check6;
+    }
+    #buttonEscolher{
+        margin-left: 48%;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+</style>
+
+<%- include ("../partials/footer.ejs") %>

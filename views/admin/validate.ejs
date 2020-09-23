@@ -1,0 +1,64 @@
+
+
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/navbar.ejs") %>
+<body>
+        <div class="jumbotron justify-content-center" >
+            <div class="row ml-1">
+                <div class="col" style="border-radius: 5px; background: #fff; border: 1px solid #DADADA;">
+                    <h3 class="mt-2 ml-2">Avaliar desafios:</h3><hr>
+                        <div class="row ml-1">
+                            <% missions.forEach((dataValues)=> { %>
+                    
+                                <form action="/admin/validar" method="POST">
+                                    <div class = 'col alert alert-primary mt-2 ml-3' style="width: 100%;">
+                                        <input type='hidden' name='id' value=<%=dataValues.id%>>
+                                            <h5><b><%=dataValues.mission%></b></h5>
+                                            <b>Link:</b> <a href=<%=dataValues.link%>><%=dataValues.link%></a><br>
+                                            <b>Equipe:</b> <%=dataValues.equipe%><br>
+                                            <b>Data de envio:</b> <%=dataValues.createdAt%>
+                                            <br>
+                                        <label>Status:<br><label>
+                                            <select class='form-control' name='validate'>
+                                                <option></option>
+                                                <option>Correto</option>
+                                                <option>Errado</option>
+                    
+                                            </select>
+                                        <button class="btn btn-success btn-block mt-2">Validar</button>
+                                    </div>
+                                </form>
+                                <%})%>
+                        </div>
+                </div>
+                    <div class="col-1"></div>
+                    <div class="col" style="border-radius: 5px; background: #fff; border: 1px solid #DADADA;">
+                        <h3 class="mt-2 ml-2">Avaliar confrontos:</h3><hr>
+                            <div class="row ml-1">
+                                <% confrontos.forEach((dataValues)=> { %>
+                        
+                                    <form action="/admin/validarconfronto" method="POST">
+                                        <div class = 'col alert alert-warning mt-2 ml-3' style="width: 100%;">
+                                            <input type='hidden' name='id' value=<%=dataValues.id%>>
+                                            <h5><b><%=dataValues.mission%></b></h5>
+                                            <b>Link:</b> <a href=<%=dataValues.link%>><%=dataValues.link%></a><br>
+                                            <b>Equipe:</b> <%=dataValues.equipe%><br>
+                                            <b>Data de envio:</b> <%=dataValues.createdAt%>
+                                            <br>
+                                            <label><b>Nota Final:</b><br><label>
+                                                <input type="hidden" id="equipe" name="equipe" value="<%=dataValues.equipe%>">
+                                                <input type="text" id="admin1" name="admin1" class="form-control">
+                                            <button class="btn btn-success btn-block mt-2" style="width: 5em;">Avaliar</button>
+                                        </div>
+                                    </form>
+                                    <%})%>
+                            </div>
+                    </div>
+                        
+                        
+                    
+                </div>
+            </div>
+</body>
+
+<%- include ("../partials/footer.ejs") %>

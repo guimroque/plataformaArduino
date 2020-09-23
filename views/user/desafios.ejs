@@ -1,0 +1,180 @@
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/navbar.ejs") %>
+<body>
+    <div class="card-header">
+
+        <div class="container w-50 card mt-5 mb-5" style="min-height:100px;">
+            
+            <div class="container text-center">
+                <div class="row justify-contet-center ">
+                    <h3 class="mt-2 ml-3">Enviar novo desafio:</h3>
+                    <form action="/user/store" method="post" style="width: 100%;">
+        
+                        <div class="col-sm-12 mt-2">
+                            <input type="text" name="link" id="link" placeholder="Cole aqui o link do tinkercad" class="form-control"><br>
+                        </div>
+                        <div class="col-sm-12 mt-2">
+                            <label><b>Desafio</b><br><label>
+                                <select class='form-control' name='mission'>
+                                    <option>Botão</option>
+                                    <option>Buzzer</option>
+                                    <option>Fotoresistor</option>
+                                    <option>Infravermelho</option>
+                                    <option>Led</option>
+                                    <option>Led RGB</option>
+                                    <option>Motor de passo</option>
+                                    <option>Potenciômetro</option>
+                                    <option>Sensor de Gás</option>
+                                    <option>Sensor Ultrasônico</option>
+                                </select>
+                        </div>
+                        <div class="col-sm-12 my-3">
+                            <button type="submit" class="btn btn-outline-dark btn-lg">Enviar</button>
+                        </div>
+                        </form> <br>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                  <div class="card-body m-2" style="background: #fff;border-radius: 5px; border:1px solid #DADADA">
+                      <% if(envios){%>
+                        <h2 class = 'mt-3'>Ultimos envios:<h2>
+                            <% envios.forEach((envios)=> { %>
+                                <hr>
+                                <% if(envios.validar == 1){%>
+                                    <div class = 'alert alert-success mt-2' style="font-size: 25px;">
+                                        <%=envios.mission%> : Parabéns, o desafio está correto!
+                                        <hr>
+                                    </div>
+                                <%}%>
+
+                                
+                                <% if(envios.validar == null){%>
+                                    <div class = 'alert alert-secondary' style="font-size: 25px;">
+                                        <%=envios.mission%> : Em análise.
+                                    </div>
+                                <%}%>
+
+                                <% if(envios.validar == 2){%>
+                                    <div class = 'alert alert-danger'style="font-size: 25px;">
+                                        <%=envios.mission%> : Não foi dessa vez, tente novamente.
+                                    </div>
+                                <%}%>
+                            <% }) %>
+                        <%}%>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card-body m-2" style="background: #fff;border-radius: 5px; border: 1px solid #DADADA;">
+                    <h2 class="mt-3">Desafios disponíveis:</h2>
+                    <hr>
+                    <% if(componentes){%>
+                    <% componentes.forEach((componente) => {%>
+                        <% if(componente == 'MTPASSO') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Motor de passo:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Motor de passo</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'ULTRA') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Sensor ultrasônico:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Sensor ultrasônico</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'BUZZ') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Buzzer:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Buzzer</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'DISPLAYLCD') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Display LCD:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Display LCD</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'INFRA') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Infravermelho:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Infravermelho</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'SENSORGAS') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Sensor de Gás:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Sensor de Gás</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'FOTO') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Fotoresistor:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Fotoresistor</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'MOTOR') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Motor:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Motor</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'LEDRGB') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Led RGB:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Led RGB</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'BOTAO') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Botão:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Botão</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'LED.') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Led:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Led</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+                        <% if(componente == 'POTENCIOMETRO') {%>
+                            <div class = 'alert alert-primary mt-2'>
+                               <b><h5>Potenciômetro:</h5></b> <br>
+                                <a href="https://www.google.com" target="blank">
+                                    <button type="button" class="btn btn-outline-info">Potenciômetro</button></a>
+                                <hr>
+                            </div>
+                        <%}%>
+
+                    <% })%>
+                    <%}%>
+                </div>
+            </div>
+            </div>
+    </div>
+</body>
+
+<%- include ("../partials/footer.ejs") %>
